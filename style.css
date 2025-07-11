@@ -204,4 +204,10 @@ footer {
   .overlay p {
     font-size: 1rem;
   }
+   .hero {
+
+  height: 60vh;
+
+  justify-content: center;
+}
 }
