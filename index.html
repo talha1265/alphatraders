@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Traders</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Alpha Traders</div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#form">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>Free things give you nothing.</h1>
+      <h1>Grab the opportunity before it's gone.<br><span style="color:#ffea00;">Limited seats and time only!</span></h1>
+      <a href="#form" class="btn">Register Now</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>We are <strong>not a coaching</strong> or <strong>an institute</strong> to spoil your money. We give real skills for real growth.</p>
+    <p>Our mission is to empower individuals with practical knowledge and entrepreneurial mindset that leads to financial independence.</p>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="courses">
+    <h3>Our Courses</h3>
+    <ul>
+      <li>🚀 Web Development – Build real-world web applications and launch your startup.</li>
+      <li>📈 Stock Market – Master trading with technical and fundamental analysis.</li>
+      <li>🚧 More Coming Soon... – Stay tuned for more career-transforming content!</li>
+    </ul>
+  </section>
+
+  <!-- Registration Form -->
+  <section id="form" class="form-section">
+    <h3>Register Now</h3>
+    <form id="whatsapp-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="class" placeholder="Your Class" required />
+      <input type="tel" id="phone" placeholder="WhatsApp Number" required />
+      <button type="submit">Send on Whatsapp</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Alpha Traders. All rights reserved.</p>
+  </footer>
+
+  <!-- WhatsApp + Nav Toggle Script -->
+  <script>
+    // WhatsApp form submission
+    document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const studentClass = document.getElementById('class').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      
+      const message = `*New Registration*%0AName: ${name}%0AClass: ${studentClass}%0AWhatsApp: ${phone}`;
+      const whatsappNumber = '918853066278'; // Replace with your WhatsApp number (with country code)
+      const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+      
+      window.open(url, '_blank');
+    });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
