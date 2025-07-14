@@ -29,7 +29,9 @@
   <section class="hero">
     <div class="overlay">
       <h1>Free things give you nothing.</h1>
-      <h1>Grab the opportunity before it's gone.<br><span style="color:#ffea00;">Limited seats and time only!</span></h1>
+      <h1>Grab the opportunity before it's gone.<br>
+        <span style="color:#ffea00;">Limited seats and available only for one time!</span>
+      </h1>
       <a href="#form" class="btn">Register Now</a>
     </div>
   </section>
@@ -56,9 +58,16 @@
     <h3>Register Now</h3>
     <form id="whatsapp-form">
       <input type="text" id="name" placeholder="Your Name" required />
-      <input type="text" id="class" placeholder="Your Class" required />
+      <input type="text" id="school" placeholder="Your School" required />
       <input type="tel" id="phone" placeholder="WhatsApp Number" required />
-      <button type="submit">Send on Whatsapp</button>
+      
+      <select id="course" required>
+        <option value="" disabled selected>Choose your course</option>
+        <option value="Web Development and Entrepreneurship">Web Development and Entrepreneurship</option>
+        <option value="Stock Market">Stock Market</option>
+      </select>
+      
+      <button type="submit">Send on WhatsApp</button>
     </form>
   </section>
 
@@ -73,11 +82,17 @@
     document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('name').value.trim();
-      const studentClass = document.getElementById('class').value.trim();
+      const school = document.getElementById('school').value.trim();
       const phone = document.getElementById('phone').value.trim();
-      
-      const message = `*New Registration*%0AName: ${name}%0AClass: ${studentClass}%0AWhatsApp: ${phone}`;
-      const whatsappNumber = '918853066278'; // Replace with your WhatsApp number (with country code)
+      const course = document.getElementById('course').value;
+
+      if (!name || !school || !phone || !course) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const message = `*New Registration*%0AName: ${name}%0ASchool: ${school}%0AWhatsApp: ${phone}%0ACourse: ${course}`;
+      const whatsappNumber = '918853066278'; // Your WhatsApp number with country code
       const url = `https://wa.me/${whatsappNumber}?text=${message}`;
       
       window.open(url, '_blank');
